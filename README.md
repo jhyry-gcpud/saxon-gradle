@@ -1,6 +1,7 @@
 Saxon Gradle Plugin
 ===================
 
+This for supports using Eclipse for development.
 A plugin for running [Saxon][saxon] from [Gradle][gradle].
 
 ## Example
