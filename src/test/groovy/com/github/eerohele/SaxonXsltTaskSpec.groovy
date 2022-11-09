@@ -31,6 +31,9 @@ class SaxonXsltTaskSpec extends Specification {
 
     @SuppressWarnings(['DuplicateStringLiteral'])
     void setup() {
+        // Why do we need to do this?
+        testProjectDir.create()
+
         gradle = testProjectDir.newFile('build.gradle')
         xslt = testProjectDir.newFile('stylesheet.xsl')
 
@@ -420,7 +423,7 @@ class SaxonXsltTaskSpec extends Specification {
 
         then:
         result.task(':xslt').outcome == TaskOutcome.SUCCESS
-        fileAsString(outputFile('xml1.html')).equals("<b></b>")
+        fileAsString(outputFile('xml1.html')).equals("<!DOCTYPE HTML><b></b>")
     }
 
     @SuppressWarnings(['MethodName', 'DuplicateStringLiteral', 'DuplicateListLiteral'])
